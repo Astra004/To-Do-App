@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Do. — To-Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Epilogue:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-row">
+      <h1 class="brand">Do<em>.</em></h1>
+      <span class="date-chip" id="date-chip"></span>
+    </div>
+    <div class="progress-row">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-label" id="progress-label">0 / 0</span>
+    </div>
+  </header>
+
+  <!-- Add Form -->
+  <div class="add-section">
+    <div class="add-form">
+      <select class="priority-select" id="priority-select" title="Priority">
+        <option value="high">🔴 High</option>
+        <option value="med" selected>🟡 Med</option>
+        <option value="low">🟢 Low</option>
+      </select>
+      <input
+        class="task-input"
+        id="task-input"
+        type="text"
+        placeholder="Add a new task…"
+        maxlength="100"
+        autocomplete="off"
+      />
+      <button class="add-btn" onclick="addTask()">
+        <svg viewBox="0 0 12 12" fill="none">
+          <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Add
+      </button>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All <span class="filter-count" id="fc-all">0</span></button>
+    <button class="filter-btn" data-filter="active" onclick="setFilter('active', this)">Active <span class="filter-count" id="fc-active">0</span></button>
+    <button class="filter-btn" data-filter="completed" onclick="setFilter('completed', this)">Done <span class="filter-count" id="fc-done">0</span></button>
+    <button class="filter-btn" data-filter="high" onclick="setFilter('high', this)">🔴 High</button>
+    <button class="filter-btn" data-filter="med" onclick="setFilter('med', this)">🟡 Med</button>
+    <button class="filter-btn" data-filter="low" onclick="setFilter('low', this)">🟢 Low</button>
+  </div>
+
+  <!-- Task List -->
+  <div id="task-list"></div>
+  <div class="empty-state" id="empty-state">
+    <div class="empty-icon">∅</div>
+    <p class="empty-text">Nothing here — add a task above</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="footer-stat" id="footer-stat"></span>
+    <div class="footer-actions">
+      <button class="ghost-btn" onclick="clearCompleted()">Clear done</button>
+      <button class="ghost-btn" onclick="clearAll()">Clear all</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
