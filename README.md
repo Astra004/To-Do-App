@@ -5,17 +5,6 @@ Drag &amp; Drop To-Do Lis
 
 A clean, minimal to-do list app built with **vanilla HTML, CSS, and JavaScript** — no frameworks, no dependencies.
 
-![Do. To-Do App](https://img.shields.io/badge/Built%20With-Vanilla%20JS-f7df1e?style=flat-square&logo=javascript)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Live-brightgreen?style=flat-square)
-
----
-
-## 🔗 Live Demo
-
-👉 **[View Live App](https://Astra004.github.io/To-Do-App)**
-
----
 
 ## ✨ Features
 
